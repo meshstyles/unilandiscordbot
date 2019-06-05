@@ -3,8 +3,12 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const bot = new Discord.Client({disableEveryone: true});
 
+bot.on("guildMemberAdd", function(member){
+    member.guild.channels.find("name", "hello-new-members").send(member.toString() + " welcome please join the meety feature with !f2 join if you need help dm a mod or type !help");
+});
+
 bot.on("ready", async() => {
-    console.log(`We release the Kraken`)
+    console.log(`We released the Kraken`)
     bot.user.setActivity("type -help for help")
 });
 
