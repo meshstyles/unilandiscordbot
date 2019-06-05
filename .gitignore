@@ -1,7 +1,7 @@
 botconfig.json
 priv_info.md
-tochange.html
-tochange.pdf
 *.mp3
 /node_modules
 /.vscode
+*.html
+*.pdf
