@@ -15,7 +15,7 @@ bot.on("ready", async() => {
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm" && !message.author.bot){
-        return message.reply("I can't responde here but you can check out this cool site about me https://sites.google.com/view/meshdev/discord-bots/asuka-bot");
+        return message.reply("Check the Help pages on https://meshstyles.github.io/unilandiscordbot/");
     };
     let prefix = botconfig.prefix;
     let alexa = "alexa";
