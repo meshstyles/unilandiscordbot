@@ -82,7 +82,7 @@ bot.on("message", async message => {
     switch(argssingle[0].toLocaleLowerCase()){
         //for single word commands
         case "no":
-            return message.channel.send("*no u !*");
+            return message.channel.send(":regional_indicator_n::regional_indicator_u: :regional_indicator_u::exclamation:");
         case `ping`:
             return message.channel.send("pong");
         case `boi`:
@@ -105,8 +105,6 @@ bot.on("message", async message => {
             return message.channel.send("https://i.imgur.com/kZRNDzP.gif");
         case `dickbutt`:
             return message.channel.send("https://i.imgur.com/Y7ajT50.gif?noredirect ");
-        case `reggie`:
-            return message.channel.send("https://files.gamebanana.com/img/ico/sprays/555c87e7008ad.png ");
         case `ready`:
             return message.channel.send("https://i.imgur.com/RiECI2K.gif?noredirect");
         case `diva`:
