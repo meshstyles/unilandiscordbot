@@ -2,7 +2,7 @@
 
 ## Wie bekomme ich einen Rollen durch den Bot
 
-schreib einfach !join *rollen Name* und du bekommst die ausgewaehlte rolle
+schreib einfach "join *rollen Name*" und du bekommst die ausgewaehlte rolle
 
 ## aber welche Rollen kann ich bekommen
 

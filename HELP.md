@@ -1,7 +1,7 @@
 # Help pages
 
 ## how to join a group
-simply write "!join *role name*" and you will join that role
+simply write "join *role name*" and you will join that role
 
 ## but which roles can I join
 
@@ -25,4 +25,4 @@ Is your steam libary way to big and you don't want anymore of that free stuff. R
 
 That's currently all for the freely joinable roles, we'll keep you up to date in the discord if anything changes.
 
-If you want to help us with any other Openings hit up @Akoyaki/Max and he'll get stared with everything
+If you want to help us with any other Openings hit up @Akoyaki/Max and he'll get you stared with everything

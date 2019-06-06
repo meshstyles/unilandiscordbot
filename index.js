@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("guildMemberAdd", function(member){
-    member.guild.channels.find("name", "hello-new-members").send(member.toString() + " welcome please join the meety feature with !f2 join if you need help dm a mod or type !help");
+    member.send("Hi " + member.toString() + " and welcome on the FRAUAS UNILAN Discord please check the Welcome and Rule channels. we have Openings if you wanna help us out");
 });
 
 bot.on("ready", async() => {
@@ -15,12 +15,12 @@ bot.on("ready", async() => {
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm" && !message.author.bot){
-        return message.reply("Check the Help pages on https://meshstyles.github.io/unilandiscordbot/");
+        return message.reply("Sorry I can't read that thats private... but check out my Help pages on https://meshstyles.github.io/unilandiscordbot/");
     };
     let prefix = botconfig.prefix;
     let alexa = "alexa";
-    let join = "join ";
-    let leave = "leave ";
+    let join = "join";
+    let leave = "leave";
     let member = message.member;
     var argssingle = message.content.split(" ");
     if(message.content.startsWith(prefix)){
@@ -32,7 +32,10 @@ bot.on("message", async message => {
         switch(message.content.toLocaleLowerCase()){
             case `${prefix}help`:
                 message.delete(1);
-                return message.author.send(" -botinfo = to get info to bot, -serverinfo = to get info to server, ping = to get a pong; and _more_ cool things");
+                return message.author.send("If you need help than check out my help pages in English/German over @ Check the Help pages on https://meshstyles.github.io/unilandiscordbot/ ");
+            case `${prefix}hilfe`:
+                message.delete(1);
+                return message.author.send("Wenn du Hilfe brauchst mit dem Bot dann seh dir unsere hilfe Seite unter Check the Help pages on https://meshstyles.github.io/unilandiscordbot/ an")
             case `${prefix}serverinfo`:
                 message.delete(1);
                 let sicon = message.guild.iconURL;
@@ -113,16 +116,23 @@ bot.on("message", async message => {
             return message.channel.send("https://i.imgur.com/mn9rY3A.jpg");
         
     }
+    if(message.content.startsWith(join)){
+        var args1 = argssingle[1].toLocaleLowerCase();
+        if(!message.member.roles.has(message.guild.roles.find("name", `${args1}`))){
+            switch (key) {
+                case value:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    }
     function joiner(){
         var roler = message.guild.roles.find("name", `${args1}`);
         message.reply(` just joined ${args1}`);
         return member.addRole(roler).catch(console.error);
-    }
-    if(message.content.startsWith(join)){
-        var args1 = argssingle[1].toLocaleLowerCase();
-        if(!message.member.roles.has(message.guild.roles.find("name", `${args1}`))){
-            //TODO use the Meety code here bc
-        }
     }
     function leaver(){
         var roler = message.guild.roles.find("name", `${args1}`);

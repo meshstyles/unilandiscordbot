@@ -14,6 +14,6 @@ Sure there are other ways to solve this like Dyno bot but hey if you do it yours
 I allready did a few things before so I just took asuka bot and modified that bot a fair bit.
 Sure there is an argument to be made to just use a diffrent branch in that git but I kinda prefer diffrent repos for diffrent things and this one is just for the specific purpose of managing this specific discord.
 
-## why use an online git than?
+## why use an online git?
 Well for one I want to be able to share the code between devices and maybe intoduce interested people from the event Server to programm with me.
-Also I can put a helpsite in the about of the bot 
+Also I can put a helpsite in this repo and collect some experiance with Github pages
