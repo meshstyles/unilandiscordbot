@@ -27,3 +27,7 @@ Ist deine Steam Libary so voll das du nichts mehr findest und willst keinen Grat
 Das sind momentan alle frei zugaenglichen Rollen, wir halten dich via discord am laufen falls sich was aendert.
 
 Und falls du unsere openings gesehen hast und uns dort aushelfen willst dann schreib @Akoyak/Max an und der wird dir dann alles erklaeren
+
+## du hast genug von deiner Rolle
+
+schreib einfach "leave *role name*" und fertig schon bist du sie los, zumindest wenn alles funkioniert

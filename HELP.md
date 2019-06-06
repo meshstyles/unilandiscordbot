@@ -26,3 +26,7 @@ Is your steam libary way to big and you don't want anymore of that free stuff. R
 That's currently all for the freely joinable roles, we'll keep you up to date in the discord if anything changes.
 
 If you want to help us with any other Openings hit up @Akoyaki/Max and he'll get you stared with everything
+
+## you have enough of the role
+
+simply write "leave *role name*" and if everything goes acording to plan you have gotten rid of that role.
