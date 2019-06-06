@@ -116,27 +116,34 @@ bot.on("message", async message => {
             return message.channel.send("https://i.imgur.com/mn9rY3A.jpg");
         
     }
-    if(message.content.startsWith(join)){
+
+    //this code is less effecient than two seperate methods but easier to maintain
+    if(argssingle[0] === leave || argssingle[0] === join ){
         var args1 = argssingle[1].toLocaleLowerCase();
         if(!message.member.roles.has(message.guild.roles.find("name", `${args1}`))){
-            switch (key) {
-                case value:
-                    
+            switch (args1) {
+                case "nofreegames":
                     break;
-            
+                case "netTest":
+                    break;
+                case "helfer":
+                    break
                 default:
-                    break;
+                    message.delete(1);
+                    return message.reply("thats not a role please check out my help page https://meshstyles.github.io/unilandiscordbot/");
             }
+            if(argssingle[0] === leave){leaver()}
+            if(argssingle[0] === join) {joiner()}
         }
     }
     function joiner(){
         var roler = message.guild.roles.find("name", `${args1}`);
-        message.reply(` just joined ${args1}`);
+        message.reply(` Achievement Get! \" ${args1} \" `);
         return member.addRole(roler).catch(console.error);
     }
     function leaver(){
         var roler = message.guild.roles.find("name", `${args1}`);
-        message.reply(`isn't available for ${args1}`);
+        message.reply(`:crab: is gone from  \"${args1}\" :crab: `);
         return member.removeRole(roler).catch(console.error);
     }
     if(message.content.startsWith(leave)){

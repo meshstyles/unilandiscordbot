@@ -16,13 +16,13 @@ Rollen
 
 Falls du interesse hast uns bei kleineren Dingen zu helfen oder Sachen mit zu gestalten dann ist das die Rolle fuer dich.
 Zum Beispiel brauchen wir genug leute die uns auf die Finger sehen und Sachen einwerfen die wir vergessen haben oder andere kleinen Dinge wie die alle dazu beitragen das Event so gut wie moeglich zu machen
-- "helper"
+- "helfer"
 
 Eine mehr spezifische Rolle ist die des Netzwerk Testers, ja so wie moderne Spiele muessen auch wir das netzwerk testen. Da viele Laptops nur noch WLAN haben muessen wir testen in wie weit man so auch mit anderen zusammen Spielen kann. Dafuer brauchen wir Leute wie dich die Etwas Zeit, einen Laptop mir Wlan und ein bisschen frustrations tolleranz mitbringen wenn nicht was gleich funktioniert.
 - "netTest"
 
 Ist deine Steam Libary so voll das du nichts mehr findest und willst keinen Gratiskram mehr. Dann reduzieren wir deine Anzahl an Benachrichtigungen indem wir dir den free games Kanal abnehmen
-- "no free games"
+- "nofreegames"
 
 Das sind momentan alle frei zugaenglichen Rollen, wir halten dich via discord am laufen falls sich was aendert.
 
