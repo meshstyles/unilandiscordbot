@@ -82,7 +82,7 @@ bot.on("message", async message => {
     switch(argssingle[0].toLocaleLowerCase()){
         //for single word commands
         case "no":
-            return message.channel.send(":regional_indicator_n::regional_indicator_u: :regional_indicator_u::exclamation:");
+            return message.channel.send(":regional_indicator_n: :regional_indicator_o:  :regional_indicator_u: :exclamation: ");
         case `ping`:
             return message.channel.send("pong");
         case `boi`:
