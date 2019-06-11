@@ -1,5 +1,8 @@
 # Uni Lan Discord Bot
 
+## Here for the LAN
+than [visit](https://sites.google.com/view/unilan/) / dann [besuche](https://sites.google.com/view/unilan/)
+
 ## need help with the bot?
 [Here](HELP.md) is the help page.
 [Hier](HILFE.md) ist die Hilfe Seite.
