@@ -18,9 +18,10 @@ bot.on("message", async message => {
         return message.reply("Sorry I can't read that thats private... but check out my Help pages on https://meshstyles.github.io/unilandiscordbot/");
     };
     let prefix = botconfig.prefix;
-    let alexa = "alexa";
-    let join = "join";
-    let leave = "leave";
+    let alexa = botconfig.alexa;
+    let join = botconfig.join;
+    let leave = botconfig.leave;
+    let vote = botconfig.vote;
     let member = message.member;
     var argssingle = message.content.split(" ");
     if(message.content.startsWith(prefix)){
@@ -74,6 +75,18 @@ bot.on("message", async message => {
             case `${alexa} this is sad`:
                return message.channel.send("ɴᴏᴡ ᴘʟᴀʏɪɴɢ: DespaSADto ───────────⚪────── ◄◄⠀▐▐ ⠀►►⠀⠀ ⠀ 𝟸:𝟷𝟾 / 𝟹:𝟻𝟼 ⠀ ───○ 🔊⠀ ᴴᴰ ⚙️ ❐ ⊏⊐");
         }
+    }
+    if (message.content.toLowerCase.startsWith(vote)){
+        let votemessage = message.content.split(botconfig.votesplit);
+        switch (votemessage[0].toLocaleLowerCase) {
+            case `${vote} 1`:
+                return message.channel.send("at least two states are required");
+            //case : 
+                
+            default:
+                break;
+        }
+
     }
     if(message.content == "oh no"){
         message.delete(1);

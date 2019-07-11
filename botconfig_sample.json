@@ -1,4 +1,9 @@
 {
     "token": "ENTER THE TOKEN HERE",
-    "prefix":"-"
+    "prefix":"-",
+    "vote":"!vote",
+    "votesplit":"-",
+    "join":"join",
+    "leave":"leave",
+    "alexa":"alexa"
 }
