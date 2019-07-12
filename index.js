@@ -76,36 +76,61 @@ bot.on("message", async message => {
                return message.channel.send("ɴᴏᴡ ᴘʟᴀʏɪɴɢ: DespaSADto ───────────⚪────── ◄◄⠀▐▐ ⠀►►⠀⠀ ⠀ 𝟸:𝟷𝟾 / 𝟹:𝟻𝟼 ⠀ ───○ 🔊⠀ ᴴᴰ ⚙️ ❐ ⊏⊐");
         }
     }
-    if (message.content.toLowerCase.startsWith(vote)){
-        let voteInMessage = message.channel
-        let voteIn = voteInMessage.split(botconfig.votesplit);
-        let votemessage = voteIn[1].split(botconfig.votesplit2);
-        let voteArgC = votemessage.length;
+    if (message.content.startsWith(vote)){
+        var voteInMessage = message.content;
+        var voteIn = voteInMessage.split(botconfig.votesplit);
+        var votemessage = voteIn[1].split(botconfig.votesplit2);
+        var voteArgC = votemessage.length;
+        var reactCounter = 0;
         switch (voteArgC) {
-            
+
             case 3:
-                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
-                message.channel.send( ":one: " + votemessage[1]);
-                return message.channel.send( ":two: " + votemessage[2]); 
-                
+                message.delete(1);
+                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2])
+                .then(function (message) {
+                    message.react('1⃣');
+                    reactCounter ++;
+                    console.log(reactCounter);
+                    message.react('2⃣');
+                    reactCounter ++;
+                    console.log(reactCounter);
+                    message.pin();
+                }).catch(function (){
+                });
+                return;
+
             case 4:
-                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
-                message.channel.send( ":one: " + votemessage[1]);
-                message.channel.send( ":two: " + votemessage[2]);
-                return message.channel.send( ":three: " + votemessage[2]); 
+                message.delete(1);
+                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
+                .then(function (message) {
+                    message.react('1⃣');
+                    message.react('2⃣');
+                    message.react('3⃣');
+                    message.pin();
+                }).catch(function (){
+                    return console.catch();
+                });
+                return;
 
             case 5:
-                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
-                message.channel.send( ":one: " + votemessage[1]);
-                message.channel.send( ":two: " + votemessage[2]);
-                return message.channel.send( ":three: " + votemessage[3]);
-
-            case 6:
-                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
-                message.channel.send( ":one: " + votemessage[1]);
-                message.channel.send( ":two: " + votemessage[2]);
-                message.channel.send( ":three: " + votemessage[3]);
-                return message.channel.send( ":four: " + votemessage[4]);
+                message.delete(1);
+                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n"  +  ":four: " + votemessage[4])
+                .then(function (message) {
+                    message.react('1⃣');
+                    reactCounter ++;
+                    console.log(reactCounter);
+                    message.react('2⃣');
+                    reactCounter ++;
+                    console.log(reactCounter);
+                    message.react('3⃣');
+                    reactCounter ++;
+                    console.log(reactCounter);
+                    message.react('4⃣');
+                    message.pin();
+                }).catch(function (){
+                    return console.catch();
+                });
+                return;
 
             default:
                 return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/");

@@ -1,5 +1,5 @@
 {
-    "token": "ENTER THE TOKEN HERE",
+    "token": "token here",
     "prefix":"-",
     "vote":"!vote",
     "votesplit":"?q",
