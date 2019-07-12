@@ -77,14 +77,38 @@ bot.on("message", async message => {
         }
     }
     if (message.content.toLowerCase.startsWith(vote)){
-        let votemessage = message.content.split(botconfig.votesplit);
-        switch (votemessage[0].toLocaleLowerCase) {
-            case `${vote} 1`:
-                return message.channel.send("at least two states are required");
-            //case : 
+        let voteInMessage = message.channel
+        let voteIn = voteInMessage.split(botconfig.votesplit);
+        let votemessage = voteIn[1].split(botconfig.votesplit2);
+        let voteArgC = votemessage.length;
+        switch (voteArgC) {
+            
+            case 3:
+                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
+                message.channel.send( ":one: " + votemessage[1]);
+                return message.channel.send( ":two: " + votemessage[2]); 
                 
+            case 4:
+                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
+                message.channel.send( ":one: " + votemessage[1]);
+                message.channel.send( ":two: " + votemessage[2]);
+                return message.channel.send( ":three: " + votemessage[2]); 
+
+            case 5:
+                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
+                message.channel.send( ":one: " + votemessage[1]);
+                message.channel.send( ":two: " + votemessage[2]);
+                return message.channel.send( ":three: " + votemessage[3]);
+
+            case 6:
+                message.channel.send( ":regional_indicator_q: " + votemessage[0]);
+                message.channel.send( ":one: " + votemessage[1]);
+                message.channel.send( ":two: " + votemessage[2]);
+                message.channel.send( ":three: " + votemessage[3]);
+                return message.channel.send( ":four: " + votemessage[4]);
+
             default:
-                break;
+                return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/");
         }
 
     }

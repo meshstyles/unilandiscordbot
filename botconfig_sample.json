@@ -2,7 +2,8 @@
     "token": "ENTER THE TOKEN HERE",
     "prefix":"-",
     "vote":"!vote",
-    "votesplit":"-",
+    "votesplit":"?q",
+    "votesplit2":"-",
     "join":"join",
     "leave":"leave",
     "alexa":"alexa"
