@@ -12,7 +12,9 @@ bot.on("ready", async() => {
     bot.user.setActivity("type -help for help")
 });
 
+
 bot.on("message", async message => {
+    if(message.type === "PINS_ADD") message.delete(1);
     if(message.author.bot) return;
     if(message.channel.type === "dm" && !message.author.bot){
         return message.reply("Sorry I can't read that thats private... but check out my Help pages on https://meshstyles.github.io/unilandiscordbot/");
@@ -30,6 +32,7 @@ bot.on("message", async message => {
             //bot uptime calc
         let botuptime = bot.uptime;
         botuptime = botuptime*0.001;
+        //uptime
         switch(message.content.toLocaleLowerCase()){
             case `${prefix}help`:
                 message.delete(1);
@@ -63,6 +66,7 @@ bot.on("message", async message => {
                 return message.channel.send(botembed);
         }
     }
+    //alexa meme
     if(message.content.startsWith(alexa)){
         // alexa
         switch(message.content.toLowerCase()) {
@@ -76,64 +80,61 @@ bot.on("message", async message => {
                return message.channel.send("ɴᴏᴡ ᴘʟᴀʏɪɴɢ: DespaSADto ───────────⚪────── ◄◄⠀▐▐ ⠀►►⠀⠀ ⠀ 𝟸:𝟷𝟾 / 𝟹:𝟻𝟼 ⠀ ───○ 🔊⠀ ᴴᴰ ⚙️ ❐ ⊏⊐");
         }
     }
+    //vote
     if (message.content.startsWith(vote)){
-        var voteInMessage = message.content;
-        var voteIn = voteInMessage.split(botconfig.votesplit);
-        var votemessage = voteIn[1].split(botconfig.votesplit2);
-        var voteArgC = votemessage.length;
-        var reactCounter = 0;
-        switch (voteArgC) {
+        var myRole = message.guild.roles.find(role => role.name === "ModStaff");
+        if(message.member.roles.has(myRole.id)){
+            var voteInMessage = message.content;
+            var voteIn = voteInMessage.split(botconfig.votesplit);
+            var votemessage = voteIn[1].split(botconfig.votesplit2);
+            var voteArgC = votemessage.length;
+            var reactCounter = 0;
 
-            case 3:
-                message.delete(1);
-                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2])
-                .then(function (message) {
-                    message.react('1⃣');
-                    reactCounter ++;
-                    console.log(reactCounter);
-                    message.react('2⃣');
-                    reactCounter ++;
-                    console.log(reactCounter);
-                    message.pin();
-                }).catch(function (){
-                });
-                return;
+            //votes Switch
+            switch (voteArgC) {
 
-            case 4:
-                message.delete(1);
-                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
-                .then(function (message) {
-                    message.react('1⃣');
-                    message.react('2⃣');
-                    message.react('3⃣');
-                    message.pin();
-                }).catch(function (){
-                    return console.catch();
-                });
-                return;
+                case 3:
+                    message.delete(1);
+                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2])
+                    .then(function (message) {
+                        //please note the lacking support of utf-8 emoji support for these
+                        // https://github.com/discordjs/discord.js/issues/2287
+                        // another listing solutions https://stackoverflow.com/questions/49225971/discord-js-message-react-fails-when-adding-specific-unicode-emotes
+                        message.pin();
+                        message.react('1⃣');
+                        message.react('2⃣');
+                    })
+                    return;
 
-            case 5:
-                message.delete(1);
-                message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n"  +  ":four: " + votemessage[4])
-                .then(function (message) {
-                    message.react('1⃣');
-                    reactCounter ++;
-                    console.log(reactCounter);
-                    message.react('2⃣');
-                    reactCounter ++;
-                    console.log(reactCounter);
-                    message.react('3⃣');
-                    reactCounter ++;
-                    console.log(reactCounter);
-                    message.react('4⃣');
-                    message.pin();
-                }).catch(function (){
-                    return console.catch();
-                });
-                return;
+                case 4:
+                    message.delete(1);
+                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
+                    .then(function (message) {
+                        message.pin();
+                        message.react('1⃣');
+                        message.react('2⃣');
+                        message.react('3⃣');
+                    })
+                    return;
 
-            default:
-                return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/");
+                case 5:
+                    message.delete(1);
+                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n"  +  ":four: " + votemessage[4])
+                    .then(function (message) {
+                        message.pin();
+                        message.react('1⃣');
+                        message.react('2⃣');
+                        message.react('3⃣');
+                        message.react('4⃣');
+                    })
+                    /*.catch(function (){
+                        return console.catch();
+                    });*/
+                    return;
+
+                default:
+                    return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/");
+            }
         }
 
     }
@@ -141,6 +142,7 @@ bot.on("message", async message => {
         message.delete(1);
         return message.channel.send("https://media.discordapp.net/attachments/264416258953314304/485228640049561600/Dl9TnQGXcAAlFHB.png");
     }
+    //single word
     switch(argssingle[0].toLocaleLowerCase()){
         //for single word commands
         case "no":
@@ -187,9 +189,10 @@ bot.on("message", async message => {
                 case "netTest":
                     break;
                 case "helfer":
-                    break
+                    break;
+                case "lfg":
+                    break; 
                 default:
-                    message.delete(1);
                     return message.reply("thats not a role please check out my help page https://meshstyles.github.io/unilandiscordbot/");
             }
             if(argssingle[0] === leave){leaver()}
