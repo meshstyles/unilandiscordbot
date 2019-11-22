@@ -101,8 +101,8 @@ bot.on("message", async message => {
                         // https://github.com/discordjs/discord.js/issues/2287
                         // another listing solutions https://stackoverflow.com/questions/49225971/discord-js-message-react-fails-when-adding-specific-unicode-emotes
                         message.pin();
-                        message.react('1⃣');
-                        message.react('2⃣');
+                        await message.react('1⃣');
+                        await message.react('2⃣');
                     })
                     return;
 
@@ -111,9 +111,9 @@ bot.on("message", async message => {
                     message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
                     .then(function (message) {
                         message.pin();
-                        message.react('1⃣');
-                        message.react('2⃣');
-                        message.react('3⃣');
+                        await message.react('1⃣');
+                        await message.react('2⃣');
+                        await message.react('3⃣');
                     })
                     return;
 
@@ -122,12 +122,12 @@ bot.on("message", async message => {
                     message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n"  +  ":four: " + votemessage[4])
                     .then(function (message) {
                         message.pin();
-                        message.react('1⃣');
-                        message.react('2⃣');
-                        message.react('3⃣');
-                        message.react('4⃣');
+                        await message.react('1⃣');
+                        await message.react('2⃣');
+                        await message.react('3⃣');
+                        await message.react('4⃣');
                     })
-                    /*.catch(function (){
+                        /*.catch(function (){
                         return console.catch();
                     });*/
                     return;
