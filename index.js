@@ -133,7 +133,7 @@ bot.on("message", async message => {
                     return;
 
                 default:
-                    return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/");
+                    return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/votes.md");
             }
         }
 
