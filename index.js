@@ -88,7 +88,6 @@ bot.on("message", async message => {
             var voteIn = voteInMessage.split(botconfig.votesplit);
             var votemessage = voteIn[1].split(botconfig.votesplit2);
             var voteArgC = votemessage.length;
-            var reactCounter = 0;
 
             //votes Switch
             switch (voteArgC) {
@@ -96,48 +95,45 @@ bot.on("message", async message => {
                 case 3:
                     message.delete(1);
                     message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2])
-                    .then(function (message) {
+                    .then(async message => {
                         //please note the lacking support of utf-8 emoji support for these
                         // https://github.com/discordjs/discord.js/issues/2287
                         // another listing solutions https://stackoverflow.com/questions/49225971/discord-js-message-react-fails-when-adding-specific-unicode-emotes
                         message.pin();
                         await message.react('1⃣');
                         await message.react('2⃣');
-                    })
+                    });
                     return;
 
                 case 4:
                     message.delete(1);
                     message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
-                    .then(function (message) {
+                    .then(async message => {
                         message.pin();
                         await message.react('1⃣');
                         await message.react('2⃣');
                         await message.react('3⃣');
-                    })
+                    });
                     return;
 
                 case 5:
                     message.delete(1);
                     message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n"  +  ":four: " + votemessage[4])
-                    .then(function (message) {
+                    .then(async message => {
                         message.pin();
                         await message.react('1⃣');
                         await message.react('2⃣');
                         await message.react('3⃣');
                         await message.react('4⃣');
-                    })
-                        /*.catch(function (){
-                        return console.catch();
-                    });*/
+                    });
                     return;
 
                 default:
                     return message.channel.send("this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/votes.md");
             }
         }
-
     }
+
     if(message.content == "oh no"){
         message.delete(1);
         return message.channel.send("https://media.discordapp.net/attachments/264416258953314304/485228640049561600/Dl9TnQGXcAAlFHB.png");
@@ -218,8 +214,6 @@ bot.on("message", async message => {
     //create a function that sends a mod an application
 
     //determine which chats are joinable like helper or network tester
-
-    //
    
 });
 bot.login(botconfig.token);
