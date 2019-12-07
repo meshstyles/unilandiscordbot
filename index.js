@@ -102,6 +102,7 @@ bot.on("message", async message => {
                         message.pin();
                         await message.react('1⃣');
                         await message.react('2⃣');
+                    }).catch(function(error) {
                     });
                     return;
 
@@ -113,6 +114,7 @@ bot.on("message", async message => {
                         await message.react('1⃣');
                         await message.react('2⃣');
                         await message.react('3⃣');
+                    }).catch(function(error) {
                     });
                     return;
 
@@ -125,6 +127,7 @@ bot.on("message", async message => {
                         await message.react('2⃣');
                         await message.react('3⃣');
                         await message.react('4⃣');
+                    }).catch(function(error) {
                     });
                     return;
 
