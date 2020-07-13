@@ -1,22 +1,22 @@
 {
-  "name": "unilandiscordbot",
-  "version": "1.0.0",
-  "description": "unilandiscord bot",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meshstyles/unilandiscordbot.git"
-  },
-  "author": "meshstyles",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/meshstyles/unilandiscordbot/issues"
-  },
-  "homepage": "https://github.com/meshstyles/unilandiscordbot#readme",
-  "dependencies": {
-    "discord.js": "^11.5.1"
-  }
+    "name": "unilandiscordbot",
+    "version": "1.0.0",
+    "description": "unilandiscord bot",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/meshstyles/unilandiscordbot.git"
+    },
+    "author": "meshstyles",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/meshstyles/unilandiscordbot/issues"
+    },
+    "homepage": "https://github.com/meshstyles/unilandiscordbot#readme",
+    "dependencies": {
+        "discord.js": "^12.2.0"
+    }
 }
