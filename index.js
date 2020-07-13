@@ -1,4 +1,6 @@
 const botconfig = require("./botconfig.json");
+const guildPersonality = require("./server_settings.json");
+const emoji = require("./emotes.json")
 const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true });
 
@@ -15,47 +17,48 @@ bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
     if (message.type === "PINS_ADD") message.delete(1);
 
-    let prefix = botconfig.prefix;
     let join = botconfig.join;
     let leave = botconfig.leave;
     let vote = botconfig.vote;
     let member = message.member;
     var argssingle = message.content.split(" ");
-    if (message.content.startsWith(prefix)) {
-        //bot uptime calc
-        let botuptime = bot.uptime;
-        botuptime = botuptime * 0.001;
-        //uptime
-        switch (message.content.toLocaleLowerCase()) {
-            case `${prefix}help`:
-                return message.author.send(botconfig.messages.help.en);
-            case `${prefix}hilfe`:
-                return message.author.send(botconfig.messages.help.de)
-            // case `${prefix}serverinfo`:
-            //     let sicon = message.guild.iconURL;
-            //     let serverembed = new Discord.RichEmbed()
-            //         .setDescription("Server Information")
-            //         .setColor("#ff7357")
-            //         .setThumbnail(sicon)
-            //         .addField("Server Name", message.guild.name)
-            //         .addField("Created on", message.guild.createdAt)
-            //         .addField("You Joined", message.member.joinedAt)
-            //         .addField("Total Memebers", message.guild.memberCount)
-            //         .addField("AFK Timeout Limit", message.guild.afkTimeout)
-            //         .addField("Uptime in sec", botuptime);
-            //     return message.channel.send(serverembed);
-            // case `${prefix}botinfo`:
-            //     message.delete(1);
-            //     let bicon = bot.user.displayAvatarURL;
-            //     let botembed = new Discord.RichEmbed()
-            //         .setDescription("Bot Information")
-            //         .setColor("#ff7357")
-            //         .setThumbnail(bicon)
-            //         .addField("Bot Name", bot.user.username)
-            //         .addField("Uptime in sec", botuptime);
-            //     return message.channel.send(botembed);
-        }
-    }
+    // if (message.content.startsWith(prefix)) {
+    // //bot uptime calc
+    // let botuptime = bot.uptime;
+    // botuptime = botuptime * 0.001;
+    // //uptime
+    // switch (message.content.toLocaleLowerCase()) {
+    //     case `${prefix}help`:
+    //         return message.author.send(guildPersonality.messages.help);
+    // case `${prefix}hilfe`:
+    //     return message.author.send(guildPersonality.messages.help.de)
+    // case `${prefix}serverinfo`:
+    //     let sicon = message.guild.iconURL;
+    //     let serverembed = new Discord.RichEmbed()
+    //         .setDescription("Server Information")
+    //         .setColor("#ff7357")
+    //         .setThumbnail(sicon)
+    //         .addField("Server Name", message.guild.name)
+    //         .addField("Created on", message.guild.createdAt)
+    //         .addField("You Joined", message.member.joinedAt)
+    //         .addField("Total Memebers", message.guild.memberCount)
+    //         .addField("AFK Timeout Limit", message.guild.afkTimeout)
+    //         .addField("Uptime in sec", botuptime);
+    //     return message.channel.send(serverembed);
+    // case `${prefix}botinfo`:
+    //     message.delete(1);
+    //     let bicon = bot.user.displayAvatarURL;
+    //     let botembed = new Discord.RichEmbed()
+    //         .setDescription("Bot Information")
+    //         .setColor("#ff7357")
+    //         .setThumbnail(bicon)
+    //         .addField("Bot Name", bot.user.username)
+    //         .addField("Uptime in sec", botuptime);
+    //     return message.channel.send(botembed);
+    // }
+    // }
+
+
     //vote
     if (message.content.startsWith(vote)) {
         var myRole = message.guild.roles.find(role => role.name === "ModStaff");
@@ -108,7 +111,7 @@ bot.on("message", async message => {
                     return;
 
                 default:
-                    return message.channel.send(botconfig.messages.votes.en);
+                    return message.channel.send(guildPersonality.messages.votes.en);
             }
         }
     }

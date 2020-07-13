@@ -1,0 +1,46 @@
+{
+    "emotes": {
+        "numbers": [
+            {
+                "text": ":zero:",
+                "emote": "0️⃣"
+            },
+            {
+                "text": ":one:",
+                "emote": "1️⃣"
+            },
+            {
+                "text": ":two:",
+                "emote": "2️⃣"
+            },
+            {
+                "text": ":three:",
+                "emote": "3️⃣"
+            },
+            {
+                "text": ":four:",
+                "emote": "4️⃣"
+            },
+            {
+                "text": ":five:",
+                "emote": "5️⃣"
+            },
+            {
+                "text": ":six:",
+                "emote": "6️⃣"
+            },
+            {
+                "text": ":seven:",
+                "emote": "7️⃣"
+            },
+            {
+                "text": ":eight:",
+                "emote": "8️⃣"
+            },
+            {
+                "text": ":nine:",
+                "emote": "9️⃣"
+            }
+        ]
+    }
+}

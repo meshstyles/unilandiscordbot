@@ -1,0 +1,12 @@
+{
+    "roles": [
+        "nofreegames",
+        "netTest",
+        "helfer",
+        "lfg"
+    ],
+    "messages": {
+        "help": "If you need help than check out my help pages in English/German over @ Check the Help pages on https://meshstyles.github.io/unilandiscordbot/ ",
+        "votes": "this is not a valid vote message. Check out the help @ https://meshstyles.github.io/unilandiscordbot/votes.md"
+    }
+}
