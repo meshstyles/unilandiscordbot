@@ -1,5 +1,9 @@
 {
     "emotes": {
+        "q": {
+            "text": ":regional_indicator_q:",
+            "emote": "🇶"
+        },
         "numbers": [
             {
                 "text": ":zero:",

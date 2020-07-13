@@ -20,137 +20,77 @@ bot.on("message", async message => {
     let join = botconfig.join;
     let leave = botconfig.leave;
     let vote = botconfig.vote;
-    let member = message.member;
     var argssingle = message.content.split(" ");
-    // if (message.content.startsWith(prefix)) {
-    // //bot uptime calc
-    // let botuptime = bot.uptime;
-    // botuptime = botuptime * 0.001;
-    // //uptime
-    // switch (message.content.toLocaleLowerCase()) {
-    //     case `${prefix}help`:
-    //         return message.author.send(guildPersonality.messages.help);
-    // case `${prefix}hilfe`:
-    //     return message.author.send(guildPersonality.messages.help.de)
-    // case `${prefix}serverinfo`:
-    //     let sicon = message.guild.iconURL;
-    //     let serverembed = new Discord.RichEmbed()
-    //         .setDescription("Server Information")
-    //         .setColor("#ff7357")
-    //         .setThumbnail(sicon)
-    //         .addField("Server Name", message.guild.name)
-    //         .addField("Created on", message.guild.createdAt)
-    //         .addField("You Joined", message.member.joinedAt)
-    //         .addField("Total Memebers", message.guild.memberCount)
-    //         .addField("AFK Timeout Limit", message.guild.afkTimeout)
-    //         .addField("Uptime in sec", botuptime);
-    //     return message.channel.send(serverembed);
-    // case `${prefix}botinfo`:
-    //     message.delete(1);
-    //     let bicon = bot.user.displayAvatarURL;
-    //     let botembed = new Discord.RichEmbed()
-    //         .setDescription("Bot Information")
-    //         .setColor("#ff7357")
-    //         .setThumbnail(bicon)
-    //         .addField("Bot Name", bot.user.username)
-    //         .addField("Uptime in sec", botuptime);
-    //     return message.channel.send(botembed);
+
+    switch (argssingle[0].toLocaleLowerCase()) {
+        case `${botconfig.prefix}help`:
+            return message.author.send(guildPersonality.messages.help);
+        case vote:
+            return voting(message);
+        case leave:
+            return leaver(message);
+        case join:
+            return joiner(message);
+        default:
+            return;
+    }
+
+    // //this code is less effecient than two seperate methods but easier to maintain
+    // if (argssingle[0] === leave || argssingle[0] === join) {
+    //     var args1 = argssingle[1].toLocaleLowerCase();
+    //     // role => role.name === "ModStaff"
+    //     if (!message.member.roles.has(message.guild.roles.find(role => role.name === `${args1}`))) {
+    //         switch (args1) {
+    //             case "nofreegames":
+    //                 break;
+    //             case "netTest":
+    //                 break;
+    //             case "helfer":
+    //                 break;
+    //             case "lfg":
+    //                 break;
+    //             default:
+    //                 return message.reply("thats not a role please check out my help page https://meshstyles.github.io/unilandiscordbot/");
+    //         }
+    //         if (argssingle[0] === leave) { leaver() }
+    //         if (argssingle[0] === join) { joiner() }
+    //     }
     // }
+    // if (message.content.startsWith(leave)) {
+    //     var args1 = argssingle[1].toLocaleLowerCase();
     // }
-
-
-    //vote
-    if (message.content.startsWith(vote)) {
-        var myRole = message.guild.roles.find(role => role.name === "ModStaff");
-        if (message.member.roles.has(myRole.id)) {
-            var voteInMessage = message.content;
-            var voteIn = voteInMessage.split(botconfig.votesplit);
-            var votemessage = voteIn[1].split(botconfig.votesplit2);
-            var voteArgC = votemessage.length;
-
-            //votes Switch
-            switch (voteArgC) {
-
-                case 3:
-                    message.delete(1);
-                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2])
-                        .then(async message => {
-                            //please note the lacking support of utf-8 emoji support for these
-                            // https://github.com/discordjs/discord.js/issues/2287
-                            // another listing solutions https://stackoverflow.com/questions/49225971/discord-js-message-react-fails-when-adding-specific-unicode-emotes
-                            message.pin();
-                            await message.react('1⃣');
-                            await message.react('2⃣');
-                        }).catch(function (error) {
-                        });
-                    return;
-
-                case 4:
-                    message.delete(1);
-                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3])
-                        .then(async message => {
-                            message.pin();
-                            await message.react('1⃣');
-                            await message.react('2⃣');
-                            await message.react('3⃣');
-                        }).catch(function (error) {
-                        });
-                    return;
-
-                case 5:
-                    message.delete(1);
-                    message.channel.send(":regional_indicator_q: " + votemessage[0] + "\n" + ":one: " + votemessage[1] + "\n" + ":two: " + votemessage[2] + "\n" + ":three: " + votemessage[3] + "\n" + ":four: " + votemessage[4])
-                        .then(async message => {
-                            message.pin();
-                            await message.react('1⃣');
-                            await message.react('2⃣');
-                            await message.react('3⃣');
-                            await message.react('4⃣');
-                        }).catch(function (error) {
-                        });
-                    return;
-
-                default:
-                    return message.channel.send(guildPersonality.messages.votes.en);
-            }
-        }
-    }
-
-    //this code is less effecient than two seperate methods but easier to maintain
-    if (argssingle[0] === leave || argssingle[0] === join) {
-        var args1 = argssingle[1].toLocaleLowerCase();
-        // role => role.name === "ModStaff"
-        if (!message.member.roles.has(message.guild.roles.find(role => role.name === `${args1}`))) {
-            switch (args1) {
-                case "nofreegames":
-                    break;
-                case "netTest":
-                    break;
-                case "helfer":
-                    break;
-                case "lfg":
-                    break;
-                default:
-                    return message.reply("thats not a role please check out my help page https://meshstyles.github.io/unilandiscordbot/");
-            }
-            if (argssingle[0] === leave) { leaver() }
-            if (argssingle[0] === join) { joiner() }
-        }
-    }
-    function joiner() {
-        var roler = message.guild.roles.find(role => role.name === `${args1}`);
-        message.reply(` Achievement Get! \" ${args1} \" `);
-        return member.addRole(roler).catch(console.error);
-    }
-    function leaver() {
-        var roler = message.guild.roles.find(role => role.name === `${args1}`);
-        message.reply(`:crab: is gone from \"${args1}\" :crab: `);
-        return member.removeRole(roler).catch(console.error);
-    }
-    if (message.content.startsWith(leave)) {
-        var args1 = argssingle[1].toLocaleLowerCase();
-
-    }
 
 });
 bot.login(botconfig.token);
+
+function voting(message) {
+    var modRole = message.guild.roles.cache.find(role => role.name === "ModStaff");
+    if (message.member.roles.cache.has(modRole.id)) {
+        var voteInMessage = message.content;
+        var voteIn = voteInMessage.split(botconfig.votesplit);
+        var votemessage = voteIn[1].split(botconfig.votesplit2);
+        var voteArgC = votemessage.length;
+        let content = `${emoji.emotes.q.text} ${votemessage[0]} \n`;
+        for (let index = 1; index < voteArgC; index++) {
+            content = content + `${emoji.emotes.numbers[index].text} ${votemessage[index]} \n`;
+        }
+        message.channel.send(content).then(async message => {
+            message.pin();
+            for (let index = 1; index < voteArgC; index++) {
+                await message.react(emoji.emotes.numbers[index].emote)
+            }
+        })
+    }
+}
+
+function joiner() {
+    var roler = message.guild.roles.find(role => role.name === `${args1} `);
+    message.reply(` Achievement Get! \" ${args1} \" `);
+    return member.addRole(roler).catch(console.error);
+}
+
+function leaver() {
+    var roler = message.guild.roles.find(role => role.name === `${args1}`);
+    message.reply(`:crab: is gone from \"${args1}\" :crab: `);
+    return member.removeRole(roler).catch(console.error);
+}
