@@ -1,10 +1,9 @@
 {
     "token": "token here",
-    "prefix":"-",
-    "vote":"!vote",
-    "votesplit":"?q",
-    "votesplit2":"-",
-    "join":"join",
-    "leave":"leave",
-    "alexa":"alexa"
+    "prefix": "-",
+    "vote": "!vote",
+    "votesplit": "?q",
+    "votesplit2": "-",
+    "join": "join",
+    "leave": "leave"
 }
