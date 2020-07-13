@@ -75,6 +75,11 @@ function voting(message) {
         var voteIn = voteInMessage.split(botconfig.votesplit);
         var votemessage = voteIn[1].split(botconfig.votesplit2);
         var voteArgC = votemessage.length;
+
+        if (voteArgC > 10) {
+            return message.channel.send(guildPersonality.polling.toManyArgs)
+        }
+
         let content = `${emoji.emotes.q.text} ${votemessage[0]} \n`;
         for (let index = 1; index < voteArgC; index++) {
             content = content + `${emoji.emotes.numbers[index].text} ${votemessage[index]} \n`;
